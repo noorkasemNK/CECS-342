@@ -1,0 +1,39 @@
+Procedural Programing in C
+In the lecture we started to compare the procedural with the functional programing paradigm.
+
+Recall the sorting algorithm quick sort (Tony Hoare, 1959).
+Write this algorithm in the C language by implementing the following procedure:
+
+void quick_sort(int *a, int n);  // Quick sort an array `a` with `n` elements in place.
+
+In a comment in your source code: Please list all tools (i.e. compilers, editors, IDEs, etc.) and websites (i.e. discord.com, haskel.org, REPL.it, etc.) that you used to complete this assignment.
+Create a small test program by implementing the procedure
+
+int main(void);  // Run some tests of `quick_sort` and print the test results.
+
+Compile and run your program and copy the output of your program into a plain text file called output.txt .
+The best way to do this is on the command line: Say your executable is called my_program
+then you can run the command ./my_program > output.txt
+Just a heads up: You’ll need to answer questions about your program later in class.
+To be prepared, make sure your code is easy to understand and maintain. Also, make sure you fully understand your own code.
+Deliverables:
+
+Upload all your source code .h and .c files, and the output.txt file.
+Here's an example of what the contents of the output.txt file could look like:
+
+CECS 342 Assignment 1
+Name: Claus Jürgensen
+Algorithm: quick sort, Language: C
+
+Input:  {}
+Sorted: {}
+
+Input:  {3}
+Sorted: {3}
+
+Input:  {3, 2, 1}
+Sorted: {1, 2, 3}
+
+Input:  {42, -33, 102, -74, 30, 1, 1000, -756, 33, -7, 10}
+Sorted: {-756, -74, -33, -7, 1, 10, 30, 33, 42, 102, 1000}
+
