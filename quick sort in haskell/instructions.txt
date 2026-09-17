@@ -1,0 +1,59 @@
+QUALITIES OF A QUICK SORT FUNCTIONS PROGRAM: exceptionally efficient, comparison-based sorting algorithm that operates on the Divide and Conquer principle. 
+
+
+
+
+Functional Programming in Haskell
+Recall the sorting algorithm quick sort (tony hoare, 1959)
+Write this algorithm in the haskell programming language by implementing the following function:
+	
+	qsort :: (ord a) => [a] -> [a] – quick sort a list 
+Create a small test program ( see details below.)
+Compile and run your program and copy the output of your program into a plain test file called output.txt. The best way to do this is on the command line: say your executable is called my_program then you can run the command  ./my_program > output.txt
+Here’s an example of what the contents of the output.txt file could look like:
+CECS 342 Assignment 1
+Name: Noor Kasem
+Algorithm: quick sort, Language: Haskell
+Input: []
+Sorted: []
+Input: [1]
+Sorted: [1]
+Input: [3,2,1]
+Sorted: [1,2,3]
+Input: [102, 43, 5, 645, 4, 34, -6, 776, 445, 45]
+Sorted: [-6, 4, 5, 34, 43, 45, 102, 445, 645, 776]
+Input: [“the”, “quick”, “brown”, “fox”, “jumps”, “over”, “the”, “lazy”, “dog”]
+Sorted: [“brown”, “dog”, “fox”, “jumps”, “lazy”, “over”, “quick”, “the”, “the”]
+
+
+And here's a template for your Haskell program that you can complete:
+-- Main.hs
+--
+-- CECS 342 Assignment 1
+-- Quick sort in Haskell
+
+module Main where
+
+-- Quick sort a list.
+qsort :: Ord a => [a] -> [a]
+qsort = undefined -- TODO: Implement this function!
+
+-- Call a sort function and print input and output.
+testSort sort input = do
+  putStr "Input:  "
+  print input
+  putStr "Sorted: "
+  print (sort input)
+
+-- Call some tests.
+main = do
+  putStrLn "CECS 342 Assignment 1"
+  putStrLn "Name: Claus Jürgensen"
+  putStrLn "Algorithm: quick sort, Language: Haskell"
+  
+  testSort qsort ([]::[Int])
+  testSort qsort [1]
+  testSort qsort [3, 2, 1]
+  testSort qsort [102, -43, 5, 645, 4, 34, -6, 776, 445, 45]
+  testSort qsort ["the",  "quick",  "brown", "fox",
+                  "jumps", "over", "the", "lazy", "dog"]
