@@ -1,0 +1,31 @@
+More procedural programming in C
+Recall the sorting algorithm merge sort (John von Neumann, 1945).
+Implement the merge sort algorithm by defining the following C procedure:
+void merge_sort(int *a, size_t n);
+The implementation of merge sort in C will require a temporary array. This array has to be dynamically allocated (not automatically).
+Make sure to do this correctly and try to understand why this is necessary.
+In a comment in your source code: Please list all tools (i.e. compilers, editors, IDEs, etc.) and services (i.e. discord.com, haskel.org, REPL.it, etc.) that you used to complete this assignment.
+Call your source code file merge_sort.c and use the header file merge_sort.h (see below).
+Write a separate file main.c with a test program running some resonable test cases and print the output. (Refer to Assignment 1 and 2.)
+Deliverables:
+
+Upload all your source code: merge_sort.h, merge_sort.c, and main.c, as well as the output file output.txt .
+If you used AI to implement this you must submit your AGENTS.md and SPEC.md files as well.
+Late submissions will not be accepted.
+Header file:
+
+// merge_sort.h
+//
+// CECS 342 Assignment 3
+// Merge Sort in C
+
+#ifndef MERGE_SORT_H
+#define MERGE_SORT_H
+
+#include <stddef.h>
+
+// Sort the array a[0..n-1] using the merge sort algorithm.
+void merge_sort(int *a, size_t n);
+
+#endif // MERGE_SORT_H
+
