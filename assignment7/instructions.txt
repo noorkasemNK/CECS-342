@@ -1,0 +1,42 @@
+Implement any sorting algorithm you like by defining the following C procedure:
+void fast_sort(uint32_t *a, size_t n);
+
+Your implementation may use the functions malloc and free from stdlib.h but no other library functions.
+You have to write it from scratch.
+Only submit one file fast_sort.c with your code where you include fast_sort.h as provided below.
+Don't forget to add your full name to the fast_sort.c file by defining, e.g.
+
+const char first_name[] = "Alex";
+const char last_name[] = "Example";
+
+If you complied to the instructions, your program compiles, and runs correctly, you will get 1 point.
+The students who submitted the top 10 fastest correct algorithms will each earn one extra credit.
+The use of AI is allowed; just list all tools that you used in a comment in your source code.
+The race will run on a machine with the following specifications:
+Machine: Apple MacBook Pro, M1 Max, 10 cores (8 performance, 2 efficiency), 64 GB RAM, macOS 27.0.1
+Architecture: AArch64 (ARMv8.4-A with NEON)
+Compiler: Homebrew clang 23.1.4
+Compiler Flags: -std=c23 -Wall -Wextra -pedantic -O3 -g -DNDEBUG -mcpu=native -funroll-loops
+Input: one array of one billion values, uniformly random over the full 32-bit range
+
+Header file:
+
+// fast_sort.h
+//
+// CECS 342
+// The Long Beach C Sorting Algorithm Extra Credit Grand Prix
+
+#ifndef FAST_SORT_H
+#define FAST_SORT_H
+
+#include <stdint.h>
+#include <stddef.h>
+
+// Provide your name in sort.c as follows:
+extern const char first_name[];
+extern const char last_name[];
+
+// Sort the array a[0..n-1] as fast as you can.
+void fast_sort(uint32_t *a, size_t n);
+
+#endif // FAST_SORT_H
