@@ -1,3 +1,7 @@
+/// created By Noor Kasem, Used AI tools used: Claude (Anthropic) - Claude Opus 5.5 and Claude Sonnet 5.5, via Claude Code.
+// On my macOS M2. Also used Visual Studio Code for editing. Also used Gemini AI overview for general questions
+
+
 
 #include "fast_sort.h"
 #include <stdlib.h>
