@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>index</title></head>
+<body><ol>
+<li><p><strong>Q: Which of these languages does not have a static type system?</strong></p>
+<p>A: Python</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match the genetic programming features to the languages.</strong></p>
+<ul>
+<li><p>Mainly just workarounds with macros or void =&gt; C</p>
+</li>
+<li><p>Templates =&gt; C++</p>
+</li>
+<li><p>Type parameters and interfaces =&gt; C#</p>
+</li>
+<li><p>Polymorphic types and type classes =&gt; Haskell</p>
+<p>&nbsp;</p>
+</li>
+
+</ul>
+</li>
+<li><p><strong>Q: What characterizes a static type system?</strong></p>
+<p>A: The types of values have to be determined at compile time / before runtime.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In the C++ statement const double rate = 3.5; the value rate is bound at...</strong></p>
+<p>A: compile time</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: The binding of the keyword double to the data type &quot;double&quot; was done at..</strong></p>
+<p>A: language design time</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In C, we first declare an int*, then assign it via malloc, then without explicitly deallocating it, assign it another value from malloc. What did we create?</strong></p>
+<p>A: A memory leak</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: A generator implemented using the yield keyword in C# or python behaves similar to which Haskell feature?</strong></p>
+<p>A: Lazy lists</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Genetic Functions in C++ are specifically using which keyword?</strong></p>
+<p>A: template</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the main reduction rule of the semantic of the 入-calculus?</strong></p>
+<p>A: β-reduction</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Runtime stacks enable...</strong></p>
+<p>A: all of these options -&gt; (recursion, unique sets of parameters..., unique sets of local variables...)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following C program:</strong></p>
+<pre><code class='language-c' lang='c'>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int *p;
+    
+    p = malloc(sizeof(int));  // 7
+    
+    if (p == 0) {
+        fputs(&quot;ERROR: Out of memory\n&quot;, stderr);  // 10
+        return 1;
+    }
+    
+    *p = 42;
+    printf(&quot;%d\n&quot;, *p);  // 15
+    
+    free(p);  // 17
+    
+    return 0;  // 19
+}
+
+
+</code></pre>
+<p><strong>In which lines of this program will heap memory be allocated and/or deallocated?</strong></p>
+<p>A: 7 and 17</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: ln which lines of this program are we referring to static memory?</strong></p>
+<p>A: 10 and 15</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: ls the use of heap memory really necessary in the above program?</strong></p>
+<p>A: No, since we&#39;re only allocation memory for one int. We could have used the stack for that.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: How would the program&#39;s behavior change if we would remove line 17?</strong></p>
+<p>A: The behavior wouldn&#39;t change,since the heap memory allocated in line 7 would be freed in line 19 when the process terminates.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match the programming language to the lambda expressions.</strong></p>
+<ul>
+<li><p><code>[](auto x){return x * x}</code> =&gt; C++</p>
+</li>
+<li><p><code>x =&gt; x * x</code> =&gt; C#</p>
+</li>
+<li><p><code>Lambda x: x * x</code> =&gt; Python</p>
+</li>
+<li><p><code>\x -&gt; x * x</code> =&gt; Haskell</p>
+<p>&nbsp;</p>
+</li>
+
+</ul>
+</li>
+<li><p><strong>Q: A list [1,2,3] in Haskell is syntactic sugar for...</strong></p>
+<p>A: <code>1 : 2 : 3 : []</code> which is equivalent to <code>1 : (2 : (3 : []))</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match the following sort functions with the programming languages they&#39;re written in.</strong></p>
+<ul>
+<li><p><code>void qsort(void *a, size_t n, size_t width, int (*comp)(const void *, const void *));</code>
+=&gt; C</p>
+</li>
+<li><p><code>sorted(iterable[, key][, reverse])</code>
+=&gt; Python</p>
+</li>
+<li><pre><code>template&lt;class RandomAccesslterator, class Compare&gt; void sort
+(RandomAccessiterator first, Random Accesslterator last, Compare comp);
+</code></pre>
+<p>=&gt; C++</p>
+</li>
+<li><p><code>sort:: Ord a=&gt; [a]-&gt;[a]</code>
+=&gt; Haskell</p>
+</li>
+<li><pre><code>public staticlOrderedEnumerable&lt;TSource&gt; OrderBy&lt;TSource, TKey&gt;( this
+lEnumerable&lt;TSource&gt; source, Func&lt;TSource, TKey&gt; keySelector);
+</code></pre>
+<p>=&gt; C#</p>
+<p>&nbsp;</p>
+</li>
+
+</ul>
+</li>
+<li><p><strong>Q: What is the type of the following polymorphic Haskell function?</strong></p>
+<p>A: <code>head :: [a] -&gt; a</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the type of the following polymorphic Haskell function?</strong></p>
+<pre><code>length [] = 0
+length (a:as) = 1 + length as
+</code></pre>
+<p>A: <code>length :: Num n =&gt; [a] -&gt; n</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the type of the following polymorphic Haskell function?</strong></p>
+<pre><code>max a b = if a &lt;= b then b else a
+</code></pre>
+<p>A: <code>max :: Ord a =&gt; a -&gt; a -&gt; a</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the type of the following polymorphic Haskell function?</strong></p>
+<pre><code>maximum = foldl1 max
+</code></pre>
+<p><strong>where</strong></p>
+<pre><code>max a b = if a &lt;= b then b else a
+</code></pre>
+<p><strong>and where foldl1 is the following function from Data.List :</strong></p>
+<pre><code>foldl1 :: Foldable t =&gt; (a -&gt; a -&gt; a) -&gt; t a -&gt; a
+</code></pre>
+<p>A: <code>maximum :: (Foldable t, Ord a) =&gt; t a -&gt; a</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which C#/LINQ keywords are used to implement generators?</strong></p>
+<p>A: select &amp; yield</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which of the following statements about the stack and the heap is incorrect?</strong></p>
+<p>A: The stack is usually larger than the heap.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following generator written in C#</strong></p>
+<pre><code class='language-c#' lang='c#'>public static
+IEnumerable&lt;int&gt; Quux(IEnumerable&lt;int&gt; seq)
+{
+    yield return 1;
+    foreach (var n in seq) yield return 5 * n;
+}
+</code></pre>
+<p><strong>Translate the C# generator Quux into Python.</strong></p>
+<p>A:</p>
+<pre><code class='language-python' lang='python'>def quux(seq):
+    yield 1
+    for n in seq:
+        yield 5 * n
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: How many times will the yield return statement be invoked when the following code is being executed?</strong></p>
+<pre><code>var ns = Quux(Quux(new int[] {1, 3}));
+foreach (var n in ns) Console.WriteLine(n);
+</code></pre>
+<p>A: 7</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the output of the following code?</strong></p>
+<pre><code>var ns = Quux(Quux(new int[]{1，3}));
+foreach (var n in ns) Console.WriteLine(n);
+</code></pre>
+<p>A: 1, 5, 25, 75</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Translate the C# generator Quux into Haskell function</strong></p>
+<pre><code>quux :: [Int] -&gt; [Int]
+</code></pre>
+<p><strong>using lazy lists:</strong></p>
+<p>A: <code>quux xs = 1 : map(5*) xs</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the Haskell 入-expression</strong></p>
+<pre><code>(\x -&gt; x * x) (1 + 2)
+</code></pre>
+<p><strong>step-by-step in normal order, i.e.</strong></p>
+<p><strong>leftmost, outermost redex first</strong></p>
+<p><strong>Which is the first redex?</strong></p>
+<p>A: <code>(\x -&gt; x * x) (1 + 2)</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which is the second redex?</strong></p>
+<p>A: 1 + 2</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which is the third redex?</strong></p>
+<p>A: 1 + 2</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which is the forth redex?</strong></p>
+<p>A: 3 * 3</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the Haskell A-expression</strong></p>
+<pre><code>(\x -&gt; x * x) (1 + 2)
+</code></pre>
+<p><strong>step-by-step in applicative order, i.e.</strong></p>
+<p><strong>rightmost, innermost redex first</strong></p>
+<p><strong>Which is the first redex?</strong></p>
+<p>A: 1 + 2</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which is the second redex?</strong></p>
+<p>A: <code>(\x -&gt; x * x) 3</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which is the third redex?</strong></p>
+<p>A: 3 * 3</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which is the forth redex?</strong></p>
+<p>A: there is none</p>
+</li>
+
+</ol>
+</body>
+</html>

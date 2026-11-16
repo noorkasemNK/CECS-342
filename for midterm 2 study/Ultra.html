@@ -1,0 +1,1919 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Ultra</title></head>
+<body>
+<h2>Haskell &amp; Functional Programming</h2>
+<ol start='1'>
+<li><p><strong>Q: A list <code>[1, 2, 3]</code> in Haskell is syntactic sugar for...</strong></p>
+<ol type='a'>
+<li><code>1 : 2 : 3 : []</code> which is equivalent to <code>(([] : 1) : 2) : 3</code></li>
+<li><code>1 : 2 : 3</code> which is equivalent to <code>1 : (2 : 3)</code></li>
+<li><code>1 : 2 : 3</code> which is equivalent to <code>(1 : 2) : 3</code></li>
+<li><code>1 : 2 : 3 : []</code> which is equivalent to <code>1 : (2 : (3 : []))</code></li>
+</ol>
+<p>A: <code>1 : 2 : 3 : []</code> which is equivalent to <code>1 : (2 : (3 : []))</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which kind of recursion is an important concept in functional programming?</strong></p>
+<ol type='a'>
+<li>head recursion</li>
+<li>neck recursion</li>
+<li>arm recursion</li>
+<li>leg recursion</li>
+<li>tail recursion</li>
+</ol>
+<p>A: tail recursion</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What does it mean that Haskell is a pure functional programming language?</strong></p>
+<p>A: The evaluation of expressions has no side-effects.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which language feature is not a feature of Haskell?</strong></p>
+<ol type='a'>
+<li>type inference</li>
+<li>mutable variables</li>
+</ol>
+<p>A: mutable variables</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Purely functional languages don't have loops, because...</strong></p>
+<ol type='a'>
+<li>...loops use too much memory</li>
+<li>...loops are inefficient</li>
+<li>...they don't have mutable variables</li>
+</ol>
+<p>A: ...they don't have mutable variables</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which technique can be used to transform a recursive function definition into an equivalent tail recursive function definition?</strong></p>
+<ol type='a'>
+<li>running index</li>
+<li>pattern matching</li>
+<li>accumulating parameters</li>
+<li>garbage collection</li>
+</ol>
+<p>A: accumulating parameters</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>product []     = 1
+product (x:xs) = x * product xs
+</code></pre>
+<p>we used an example of</p>
+<ol type='a'>
+<li>list concatenation</li>
+<li>pattern matching</li>
+<li>incorrect syntax</li>
+<li>tail recursion</li>
+</ol>
+<p>A: pattern matching</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which Haskell language feature is used where other languages would use NULL pointers?</strong></p>
+<ol type='a'>
+<li>lazy evaluation</li>
+<li>monads</li>
+<li>algebraic data types, in particular co-products</li>
+</ol>
+<p>A: algebraic data types, in particular co-products (sum types)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What makes a recursive function definition tail recursive?</strong></p>
+<ol type='a'>
+<li>the function has at most one argument</li>
+<li>the function has no local variables</li>
+<li>it contains exactly one recursive call and its return value is immediately returned by the calling function</li>
+<li>the function returns a Boolean</li>
+<li>the function has no side effects</li>
+</ol>
+<p>A: it contains exactly one recursive call and its return value is immediately returned by the calling function</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which of the following expressions is not equivalent to the section <code>(^2)</code>?</strong></p>
+<ol type='a'>
+<li><code>\x -&gt; x^2</code></li>
+<li><code>\y -&gt; y^2</code></li>
+<li><code>\x -&gt; 2^x</code></li>
+<li><code>flip (^) 2</code></li>
+<li><code>f where f x = x^2</code></li>
+</ol>
+<p>A: <code>\x -&gt; 2^x</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: All but one of the following Haskell expressions are equivalent. Which one is different?</strong></p>
+<ol type='a'>
+<li><code>let f n = 2*n in f</code></li>
+<li><code>\n -&gt; 2*n</code></li>
+<li><code>(2*)</code></li>
+<li><code>\n -&gt; n</code></li>
+</ol>
+<p>A: <code>\n -&gt; n</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the expression</strong></p>
+<pre><code class='language-haskell' lang='haskell'>a`b`c
+  where
+    a = "a"
+    b = (++)
+    c = "c"
+</code></pre>
+<ol type='a'>
+<li><code>"bc"</code></li>
+<li><code>"ac"</code></li>
+<li><code>"ab"</code></li>
+<li><code>""</code></li>
+<li><code>"abc"</code></li>
+</ol>
+<p>A: <code>"ac"</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr (+) 0 [1, 2, 3]
+</code></pre>
+<ol type='a'>
+<li>-6</li>
+<li>-1</li>
+<li>2</li>
+<li>6</li>
+<li>11</li>
+</ol>
+<p>A: 6</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr (-) 0 [1, 2, 3]
+</code></pre>
+<ol type='a'>
+<li>-6</li>
+<li>-1</li>
+<li>2</li>
+<li>6</li>
+<li>11</li>
+</ol>
+<p>A: 2</p>
+<p><em>Note: 1 - (2 - (3 - 0)) = 2. Some study sets ("midterm tuesday", "final review 2024") say -6 — that is wrong.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldl (+) 0 [1, 2, 3]
+</code></pre>
+<ol type='a'>
+<li>-6</li>
+<li>-1</li>
+<li>2</li>
+<li>6</li>
+<li>11</li>
+</ol>
+<p>A: 6</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldl (-) 0 [1, 2, 3]
+</code></pre>
+<ol type='a'>
+<li>-6</li>
+<li>-1</li>
+<li>2</li>
+<li>6</li>
+<li>11</li>
+</ol>
+<p>A: -6</p>
+<p><em>Note: ((0 - 1) - 2) - 3 = -6. The "final review 2024" set says 2 — that is wrong.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr (+) 5 [1, 2, 3]
+</code></pre>
+<ol type='a'>
+<li>-6</li>
+<li>-1</li>
+<li>2</li>
+<li>6</li>
+<li>11</li>
+</ol>
+<p>A: 11</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldl (-) 5 [1, 2, 3]
+</code></pre>
+<ol type='a'>
+<li>-6</li>
+<li>-1</li>
+<li>2</li>
+<li>6</li>
+</ol>
+<p>A: -1</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the Haskell expression</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr (-) 1 [2, 3]
+</code></pre>
+<ol type='a'>
+<li>6</li>
+<li>-4</li>
+<li>-6</li>
+<li>0</li>
+</ol>
+<p>A: 0  (2 - (3 - 1) = 0)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the type of the following polymorphic Haskell function?</strong></p>
+<pre><code class='language-haskell' lang='haskell'>max a b = if a &lt;= b then b else a
+</code></pre>
+<ol type='a'>
+<li><code>max :: Ord a =&gt; a -&gt; a -&gt; a</code></li>
+<li><code>max :: a -&gt; a -&gt; a</code></li>
+<li><code>max :: a -&gt; b -&gt; c</code></li>
+<li><code>max :: Ord a =&gt; (a, a) -&gt; a</code></li>
+</ol>
+<p>A: <code>max :: Ord a =&gt; a -&gt; a -&gt; a</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the type of the following polymorphic Haskell function?</strong></p>
+<pre><code class='language-haskell' lang='haskell'>head (x:xs) = x
+</code></pre>
+<ol type='a'>
+<li><code>head :: [a] -&gt; a</code></li>
+<li><code>head :: [a] -&gt; b</code></li>
+<li><code>head :: [a] -&gt; Int</code></li>
+<li><code>head :: [a] -&gt; [a]</code></li>
+</ol>
+<p>A: <code>head :: [a] -&gt; a</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the type of the following polymorphic Haskell function?</strong></p>
+<pre><code class='language-haskell' lang='haskell'>tail (x:xs) = xs
+</code></pre>
+<p>A: <code>tail :: [a] -&gt; [a]</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the type of the following polymorphic Haskell function?</strong></p>
+<pre><code class='language-haskell' lang='haskell'>length []     = 0
+length (a:as) = 1 + length as
+</code></pre>
+<ol type='a'>
+<li><code>length :: Num n =&gt; [a] -&gt; n</code></li>
+<li><code>length :: [a] -&gt; a</code></li>
+<li><code>length :: Num a =&gt; [a] -&gt; n</code></li>
+<li><code>length :: [Int] -&gt; Int</code></li>
+</ol>
+<p>A: <code>length :: Num n =&gt; [a] -&gt; n</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the type of the following polymorphic Haskell function?</strong></p>
+<pre><code class='language-haskell' lang='haskell'>maximum = foldl1 max
+</code></pre>
+<p>where <code>max a b = if a &lt;= b then b else a</code> and where <code>foldl1</code> is the following function from <code>Data.List</code>:</p>
+<pre><code class='language-haskell' lang='haskell'>foldl1 :: Foldable t =&gt; (a -&gt; a -&gt; a) -&gt; t a -&gt; a
+</code></pre>
+<ol type='a'>
+<li><code>maximum :: (Foldable t, Ord a) =&gt; t a -&gt; a</code></li>
+<li><code>maximum :: Ord a =&gt; [a] -&gt; a</code></li>
+<li><code>maximum :: (Foldable a, Ord t) =&gt; t a -&gt; a</code></li>
+<li><code>maximum :: (Foldable t, Ord a) =&gt; a t -&gt; a</code></li>
+</ol>
+<p>A: <code>maximum :: (Foldable t, Ord a) =&gt; t a -&gt; a</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>const x _ = x
+</code></pre>
+<p>Evaluate</p>
+<pre><code class='language-haskell' lang='haskell'>const (1+) 10 100
+</code></pre>
+<ol type='a'>
+<li>10</li>
+<li>11</li>
+<li>100</li>
+<li>101</li>
+</ol>
+<p>A: 101</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>const x _ = x
+</code></pre>
+<p>What is the type of <code>const</code>?</p>
+<ol type='a'>
+<li><code>const :: a -&gt; b -&gt; c</code></li>
+<li><code>const :: a -&gt; b -&gt; a</code></li>
+</ol>
+<p>A: <code>const :: a -&gt; b -&gt; a</code></p>
+<p><em>Note: The "final review 2024" set says <code>a -&gt; b -&gt; c</code> — that is wrong; <code>const</code> returns its first argument, so the result type is <code>a</code>.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>const x _ = x
+</code></pre>
+<p>Evaluate the Haskell expression</p>
+<pre><code class='language-haskell' lang='haskell'>foldr (const (1+)) 0 [2, 31, 1]
+</code></pre>
+<ol type='a'>
+<li>0</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ol>
+<p>A: 3</p>
+<p><em>Note: foldr ignores each element and adds 1 to the accumulator once per element: 3 elements → 3.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>const x _ = x
+</code></pre>
+<p>Evaluate the Haskell expression</p>
+<pre><code class='language-haskell' lang='haskell'>foldl (const (1+)) 0 [2, 3, 1]
+</code></pre>
+<ol type='a'>
+<li>0</li>
+<li>1</li>
+<li>2</li>
+</ol>
+<p>A: 2</p>
+<p><em>Note: foldl ignores the accumulator, so the result is 1 + the LAST element: 1 + 1 = 2.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>const x _ = x
+</code></pre>
+<p>Evaluate the Haskell expression</p>
+<pre><code class='language-haskell' lang='haskell'>foldl (const (1+)) 0 [2, 1, 3]
+</code></pre>
+<p>A: 4  (1 + the last element, 3)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>const x _ = x
+</code></pre>
+<p>Evaluate the Haskell expression</p>
+<pre><code class='language-haskell' lang='haskell'>foldr (const (1+)) 0 [2, 1, 3]
+</code></pre>
+<p>A: 3  (1 per element)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>(++) []     ys = ys
+(++) (x:xs) ys = x : (xs ++ ys)
+</code></pre>
+<p>Evaluate the Haskell expression</p>
+<pre><code class='language-haskell' lang='haskell'>"c" ++ "++"
+</code></pre>
+<ol type='a'>
+<li><code>""</code></li>
+<li><code>"c"</code></li>
+<li><code>"c++"</code></li>
+</ol>
+<p>A: <code>"c++"</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>(++) []     ys = ys
+(++) (x:xs) ys = x : (xs ++ ys)
+</code></pre>
+<p>What is the type of <code>(++)</code>?</p>
+<ol type='a'>
+<li><code>(++) :: a -&gt; b -&gt; c</code></li>
+<li><code>(++) :: [a] -&gt; [a] -&gt; [a]</code></li>
+<li><code>(++) :: a -&gt; a -&gt; a</code></li>
+<li><code>(++) :: [a] -&gt; [b] -&gt; [c]</code></li>
+</ol>
+<p>A: <code>(++) :: [a] -&gt; [a] -&gt; [a]</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>(++) []     ys = ys
+(++) (x:xs) ys = x : (xs ++ ys)
+</code></pre>
+<p>What does the function <code>foldr (++) []</code> do?</p>
+<ol type='a'>
+<li>concatenate two lists</li>
+<li>flatten a list of lists</li>
+<li>reverse a list</li>
+<li>count the elements of a list</li>
+<li>nothing</li>
+</ol>
+<p>A: flatten a list of lists</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the type of <code>foldr (++) []</code> (e.g. applied to <code>[x, y, z]</code>)?</strong></p>
+<p>A: <code>[[a]] -&gt; [a]</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>flip f a b = f b a
+</code></pre>
+<p>Evaluate</p>
+<pre><code class='language-haskell' lang='haskell'>flip (-) 1 2
+</code></pre>
+<ol type='a'>
+<li>-2</li>
+<li>-1</li>
+<li>0</li>
+<li>1</li>
+<li>2</li>
+</ol>
+<p>A: 1  (flip (-) 1 2 = 2 - 1)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>flip f a b = f b a
+</code></pre>
+<p>What is the type of <code>flip</code>?</p>
+<ol type='a'>
+<li><code>flip :: (a-&gt;b-&gt;c) -&gt; (a-&gt;b-&gt;c)</code></li>
+<li><code>flip :: (a-&gt;b-&gt;b) -&gt; (a-&gt;a-&gt;c)</code></li>
+<li><code>flip :: (a-&gt;a-&gt;a) -&gt; (b-&gt;b-&gt;b)</code></li>
+<li><code>flip :: (a-&gt;a-&gt;a) -&gt; (a-&gt;a-&gt;a)</code></li>
+<li><code>flip :: (a-&gt;b-&gt;c) -&gt; (b-&gt;a-&gt;c)</code></li>
+</ol>
+<p>A: <code>flip :: (a -&gt; b -&gt; c) -&gt; (b -&gt; a -&gt; c)</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>flip f a b = f b a
+</code></pre>
+<p>Evaluate the expression</p>
+<pre><code class='language-haskell' lang='haskell'>foldl (flip (:)) [] "drawer"
+</code></pre>
+<ol type='a'>
+<li><code>"drawer"</code></li>
+<li><code>"dae"</code></li>
+<li><code>[]</code></li>
+<li><code>""</code></li>
+<li><code>"reward"</code></li>
+</ol>
+<p>A: <code>"reward"</code>  (it reverses the string)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type and function definitions:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data (a, b) = (a, b)
+
+fst (a, _) = a
+snd (_, b) = b
+</code></pre>
+<p>Which kind of algebraic data type is <code>(a, b)</code>?</p>
+<p>A: a product</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type and function definitions:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data (a, b) = (a, b)
+
+fst (a, _) = a
+snd (_, b) = b
+</code></pre>
+<p>What kind of functions are <code>fst</code> and <code>snd</code>?</p>
+<p>A: projections</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type and function definitions:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data (a, b) = (a, b)
+
+fst (a, _) = a
+snd (_, b) = b
+</code></pre>
+<p>Evaluate the expression</p>
+<pre><code class='language-haskell' lang='haskell'>let f p = fst p - snd p in f (1, 3)
+</code></pre>
+<ol type='a'>
+<li>-2</li>
+<li>-1</li>
+<li>0</li>
+<li>1</li>
+<li>2</li>
+</ol>
+<p>A: -2</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type and function definitions:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data (a, b) = (a, b)
+
+fst (a, _) = a
+snd (_, b) = b
+</code></pre>
+<p>Evaluate the expression</p>
+<pre><code class='language-haskell' lang='haskell'>let f p = snd p - fst p in f (1, 3)
+</code></pre>
+<p>A: 2</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type definition:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Pair a b = Pair a b
+</code></pre>
+<p>What kind of algebraic data type is this?</p>
+<ol type='a'>
+<li>Product</li>
+<li>Type class</li>
+<li>Type recursion</li>
+<li>Co-Product</li>
+</ol>
+<p>A: Product</p>
+<p><em>Note: The "tricky" set says Co-Product — that is wrong. A constructor holding an <code>a</code> AND a <code>b</code> is a product.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which of the following Haskell data type definitions uses type recursion?</strong></p>
+<ol type='a'>
+<li><code>data Maybe a = Nothing | Just a</code></li>
+<li><code>data Tree a = Tip | Branch (Tree a) a (Tree a)</code></li>
+<li><code>data Pair a b = Pair a b</code></li>
+<li><code>data Either a b = Left a | Right b</code></li>
+</ol>
+<p>A: <code>data Tree a = Tip | Branch (Tree a) a (Tree a)</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which of the following is an example of a sum/co-product type in Haskell?</strong></p>
+<p>A: <code>data Shape = Circle Float | Rectangle Float Float</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match each type to the kind of algebraic data type.</strong></p>
+<ul>
+<li><p>Record (also called structure or struct) =&gt; <strong>Product</strong></p></li>
+<li><p>Enumerated type =&gt; <strong>Sum / co-product</strong></p></li>
+<li><p>Tuple =&gt; <strong>Product</strong></p></li>
+<li><p>Tagged union =&gt; <strong>Sum / co-product</strong></p></li>
+</ul>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In Haskell, which keyword is used to define algebraic data types?</strong></p>
+<p>A: <code>data</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the purpose of the <code>deriving</code> clause in Haskell data type declarations?</strong></p>
+<p>A: It automatically generates instance definitions for certain type classes.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is a recursive data type?</strong></p>
+<p>A: A data type that refers to itself in its definition.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the purpose of <code>typedef</code> (in C)?</strong></p>
+<p>A: It gives a new name (an alias) to an existing type.</p>
+<p><em>Note: The "final review 2024" set had no answer for this one; this is the standard answer.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type definition:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Maybe a = Nothing | Just a
+</code></pre>
+<p>What can <code>Maybe</code> be used for?</p>
+<ol type='a'>
+<li>optional values</li>
+<li>side effects</li>
+<li>mutable values</li>
+<li>pointers</li>
+</ol>
+<p>A: optional values</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type and type class instance definition:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Maybe a = Nothing | Just a
+
+instance Foldable Maybe
+  where
+    foldr _ z Nothing  = z
+    foldr f z (Just x) = f x z
+</code></pre>
+<p>Keep in mind that functions like <code>sum :: (Foldable t, Num a) =&gt; t a -&gt; a</code> (and <code>product</code>, <code>length</code>) are defined in terms of <code>foldr</code>. Evaluate the expression <code>sum Nothing</code></p>
+<ol type='a'>
+<li>-2</li>
+<li>-1</li>
+<li>0</li>
+<li>1</li>
+<li>2</li>
+</ol>
+<p>A: 0</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type and type class instance definition:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Maybe a = Nothing | Just a
+
+instance Foldable Maybe
+  where
+    foldr _ z Nothing  = z
+    foldr f z (Just x) = f x z
+</code></pre>
+<p>Keep in mind that functions like <code>sum :: (Foldable t, Num a) =&gt; t a -&gt; a</code> (and <code>product</code>, <code>length</code>) are defined in terms of <code>foldr</code>. Evaluate the expression <code>sum (Just 2)</code></p>
+<ol type='a'>
+<li>-2</li>
+<li>-1</li>
+<li>0</li>
+<li>1</li>
+<li>2</li>
+</ol>
+<p>A: 2</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type and type class instance definition:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Maybe a = Nothing | Just a
+
+instance Foldable Maybe
+  where
+    foldr _ z Nothing  = z
+    foldr f z (Just x) = f x z
+</code></pre>
+<p>Keep in mind that functions like <code>sum :: (Foldable t, Num a) =&gt; t a -&gt; a</code> (and <code>product</code>, <code>length</code>) are defined in terms of <code>foldr</code>. Evaluate the expression <code>product Nothing</code></p>
+<p>A: 1</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type and type class instance definition:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Maybe a = Nothing | Just a
+
+instance Foldable Maybe
+  where
+    foldr _ z Nothing  = z
+    foldr f z (Just x) = f x z
+</code></pre>
+<p>Keep in mind that functions like <code>sum :: (Foldable t, Num a) =&gt; t a -&gt; a</code> (and <code>product</code>, <code>length</code>) are defined in terms of <code>foldr</code>. Evaluate the expression <code>product (Just 2)</code></p>
+<p>A: 2</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type and type class instance definition:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Maybe a = Nothing | Just a
+
+instance Foldable Maybe
+  where
+    foldr _ z Nothing  = z
+    foldr f z (Just x) = f x z
+</code></pre>
+<p>Keep in mind that functions like <code>sum :: (Foldable t, Num a) =&gt; t a -&gt; a</code> (and <code>product</code>, <code>length</code>) are defined in terms of <code>foldr</code>. Evaluate the expression <code>length (Just "abc")</code></p>
+<p>A: 1</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type and type class instance definition:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Maybe a = Nothing | Just a
+
+instance Foldable Maybe
+  where
+    foldr _ z Nothing  = z
+    foldr f z (Just x) = f x z
+</code></pre>
+<p>Keep in mind that functions like <code>sum :: (Foldable t, Num a) =&gt; t a -&gt; a</code> (and <code>product</code>, <code>length</code>) are defined in terms of <code>foldr</code>. Evaluate the expression <code>length Nothing</code></p>
+<p>A: 0</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell function definitions:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr _ z []     = z
+foldr f z (x:xs) = f x (foldr f z xs)
+
+foldl _ z []     = z
+foldl f z (x:xs) = foldl f (f z x) xs
+</code></pre>
+<p>Which of these functions are tail recursive?</p>
+<ol type='a'>
+<li>both foldr and foldl</li>
+<li>foldr but not foldl</li>
+<li>foldl but not foldr</li>
+<li>neither foldr nor foldl</li>
+</ol>
+<p>A: foldl but not foldr</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell function definitions:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr _ z []     = z
+foldr f z (x:xs) = f x (foldr f z xs)
+
+foldl _ z []     = z
+foldl f z (x:xs) = foldl f (f z x) xs
+</code></pre>
+<p>What is the type of <code>foldr</code>?</p>
+<ol type='a'>
+<li><code>foldr :: (a-&gt;a-&gt;b) -&gt; b -&gt; [a] -&gt; b</code></li>
+<li><code>foldr :: (a-&gt;b-&gt;b) -&gt; b -&gt; [a] -&gt; b</code></li>
+</ol>
+<p>A: <code>foldr :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell function definitions:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr _ z []     = z
+foldr f z (x:xs) = f x (foldr f z xs)
+
+foldl _ z []     = z
+foldl f z (x:xs) = foldl f (f z x) xs
+</code></pre>
+<p>What is the type of <code>foldl</code>?</p>
+<p>A: <code>foldl :: (b -&gt; a -&gt; b) -&gt; b -&gt; [a] -&gt; b</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match the following functions with the equivalent implementations using folds (last, filter, (++), or map):</strong></p>
+<pre><code class='language-haskell' lang='haskell'>last :: [a] -&gt; a
+last []     = error "empty list"
+last [x]    = x
+last (x:xs) = last xs
+
+(++) :: [a] -&gt; [a] -&gt; [a]
+[]     ++ ys = ys
+(x:xs) ++ ys = x : (xs ++ ys)
+
+map :: (a -&gt; b) -&gt; [a] -&gt; [b]
+map _ []     = []
+map f (x:xs) = f x : map f xs
+
+filter :: (a -&gt; Bool) -&gt; [a] -&gt; [a]
+filter p [] = []
+filter p (x:xs) | p x       = x : filter p xs
+                | otherwise = filter p xs
+</code></pre>
+<ul>
+<li><p><code>\f -&gt; foldr ((:) . f) []</code> =&gt; <strong>map</strong></p></li>
+<li><p><code>\p -&gt; foldr f [] where f x = if p x then (x:) else id</code> =&gt; <strong>filter</strong></p></li>
+<li><p><code>foldl (\_ x -&gt; x) (error "empty list")</code> =&gt; <strong>last</strong></p></li>
+<li><p><code>flip (foldr (:))</code> =&gt; <strong>(++)</strong></p></li>
+</ul>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider this Haskell quicksort:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>qsort []     = []
+qsort (x:xs) = sortp xs [] []
+  where
+    sortp []     us vs = qsort us ++ x : qsort vs
+    sortp (y:ys) us vs = if y &lt; x then sortp ys (y:us) vs
+                                  else sortp ys us (y:vs)
+</code></pre>
+<p>Which of the following is true?</p>
+<p>A: <code>sortp</code> is tail recursive but <code>qsort</code> is not.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Fill in the missing line of this Haskell <code>merge</code> function:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>merge []     ys = ys
+merge xs     [] = xs
+merge (x:xs) (y:ys)
+  | x &lt;= y    = ______
+  | otherwise = y : merge (x:xs) ys
+</code></pre>
+<p>A: <code>x : merge xs (y:ys)</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which language feature enables Haskell to work with infinite data structures?</strong></p>
+<p>A: Lazy evaluation</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which language concept is used in Haskell to express ad-hoc polymorphism?</strong></p>
+<ol type='a'>
+<li>Type classes</li>
+<li>Interfaces</li>
+<li>Templates</li>
+</ol>
+<p>A: Type classes</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which language concept is used in Haskell to express parametric polymorphism?</strong></p>
+<ol type='a'>
+<li>Type variables / parameters</li>
+<li>Type classes</li>
+<li>Interfaces</li>
+<li>Templates</li>
+</ol>
+<p>A: Type variables / parameters</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: The worst case time complexity to access a random element is</strong></p>
+<ol type='a'>
+<li>O(n) for arrays and O(n) for lists.</li>
+<li>O(1) for arrays and O(n) for lists.</li>
+<li>O(1) for arrays and O(1) for lists.</li>
+<li>O(n) for arrays and O(1) for lists.</li>
+</ol>
+<p>A: O(1) for arrays and O(n) for lists.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: The average case time complexity to access a random element is</strong></p>
+<p>A: O(1) for arrays and O(n) for lists.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: The average case time complexity to insert/delete an element is</strong></p>
+<p>A: O(n) for arrays and O(1) for lists.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Classify each C snippet as functional or imperative style.</strong></p>
+<ul>
+<li><p><code>const int x = 5;</code> =&gt; <strong>functional (immutable binding)</strong></p></li>
+<li><p><code>void swap(int *a, int *b) { int h = *a; *a = *b; *b = h; }</code> =&gt; <strong>imperative (changes state)</strong></p></li>
+<li><p><code>int f(int x) { return 2 * x + 1; }</code> =&gt; <strong>functional (no side effects)</strong></p></li>
+<li><p><code>x = x + 5;</code> =&gt; <strong>imperative (mutates x)</strong></p></li>
+</ul>
+<p><em>Note: The "final review 2024" set wrote the last one as <code>x + x + 5</code>; it is almost certainly the assignment <code>x = x + 5</code>.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Fill in the missing line of this C swap function:</strong></p>
+<pre><code class='language-c' lang='c'>static void swap(int *a, int i, int j) {
+    int h = a[i];
+    ______
+    a[j] = h;
+}
+</code></pre>
+<p>A: <code>a[i] = a[j];</code></p>
+<p>&nbsp;</p>
+</li>
+</ol>
+<h2>Types, Bindings &amp; Generic Programming</h2>
+<ol start='71'>
+<li><p><strong>Q: Which of these languages does not have a static type system?</strong></p>
+<ol type='a'>
+<li>C</li>
+<li>C++</li>
+<li>C#</li>
+<li>Haskell</li>
+<li>Python</li>
+</ol>
+<p>A: Python</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What characterizes a static type system?</strong></p>
+<ol type='a'>
+<li>The use of types is optional.</li>
+<li>The types of values are being determined at runtime.</li>
+<li>The types of values have to be determined at compile time / before runtime.</li>
+<li>Only static variables have types.</li>
+</ol>
+<p>A: The types of values have to be determined at compile time / before runtime.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which programming language uses "duck typing"?</strong></p>
+<p>A: Python</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In the C++ statement <code>const double rate = 3.5;</code> the value of rate is bound at...</strong></p>
+<ol type='a'>
+<li>compile time</li>
+<li>load time</li>
+<li>runtime</li>
+<li>language design time</li>
+</ol>
+<p>A: compile time</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: The binding of the keyword <code>double</code> to the data type "double" was done at...</strong></p>
+<ol type='a'>
+<li>language design time</li>
+<li>compile time</li>
+<li>load time</li>
+<li>runtime</li>
+</ol>
+<p>A: language design time</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: A variable that can be bound to a value only once is called a...</strong></p>
+<ol type='a'>
+<li>Static variable</li>
+<li>Named constant</li>
+<li>Dynamic variable</li>
+<li>Global variable</li>
+</ol>
+<p>A: Named constant</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match the generic programming features to the languages.</strong></p>
+<ul>
+<li><p>Mainly just workarounds with macros or void* =&gt; <strong>C</strong></p></li>
+<li><p>Templates =&gt; <strong>C++</strong></p></li>
+<li><p>Type parameters and interfaces =&gt; <strong>C#</strong></p></li>
+<li><p>Polymorphic types and type classes =&gt; <strong>Haskell</strong></p></li>
+</ul>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Generic functions in C++ are specifically using which keyword?</strong></p>
+<ol type='a'>
+<li>template</li>
+<li>virtual</li>
+<li>generic</li>
+<li>const</li>
+</ol>
+<p>A: template</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the main advantage of generic programming?</strong></p>
+<p>A: It improves source code re-usability.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which of the following languages provide syntax for lambda expressions?</strong></p>
+<ol type='a'>
+<li>Haskell</li>
+<li>Python</li>
+<li>C#</li>
+<li>C++</li>
+<li>all of the above</li>
+</ol>
+<p>A: all of the above</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match the programming language to the lambda expressions.</strong></p>
+<ul>
+<li><p><code>[](auto x){ return x * x; }</code> =&gt; <strong>C++</strong></p></li>
+<li><p><code>x =&gt; x * x</code> =&gt; <strong>C#</strong></p></li>
+<li><p><code>lambda x: x * x</code> =&gt; <strong>Python</strong></p></li>
+<li><p><code>\x -&gt; x * x</code> =&gt; <strong>Haskell</strong></p></li>
+</ul>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match the following sort functions with the programming languages they're written in.</strong></p>
+<ul>
+<li><p><code>void qsort(void *a, size_t n, size_t width, int (*comp)(const void *, const void *));</code> =&gt; <strong>C</strong></p></li>
+<li><p><code>sorted(iterable[, key][, reverse])</code>  (older form: <code>sorted(iterable[, cmp[, key[, reverse]]])</code>) =&gt; <strong>Python</strong></p></li>
+<li><p><code>template&lt;class RandomAccessIterator, class Compare&gt; void sort(RandomAccessIterator first, RandomAccessIterator last, Compare comp);</code> =&gt; <strong>C++</strong></p></li>
+<li><p><code>sort :: Ord a =&gt; [a] -&gt; [a]</code> =&gt; <strong>Haskell</strong></p></li>
+<li><p><code>public static IOrderedEnumerable&lt;TSource&gt; OrderBy&lt;TSource, TKey&gt;(this IEnumerable&lt;TSource&gt; source, Func&lt;TSource, TKey&gt; keySelector);</code> =&gt; <strong>C#</strong></p></li>
+</ul>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match the heap memory allocation feature to the language.</strong></p>
+<ul>
+<li><p>malloc / free =&gt; <strong>C</strong></p></li>
+<li><p>new / delete =&gt; <strong>C++</strong></p></li>
+<li><p>new / garbage collector =&gt; <strong>C#</strong></p></li>
+</ul>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What does the <code>sizeof</code> operator in C return?</strong></p>
+<p>A: The size of a data type in bytes.</p>
+<p>&nbsp;</p>
+</li>
+</ol>
+<h2>Memory: Stack, Heap &amp; Static</h2>
+<ol start='85'>
+<li><p><strong>Q: Consider the following C program:</strong></p>
+<pre><code class='language-c' lang='c'>01 #include &lt;stdio.h&gt;
+02 #include &lt;stdlib.h&gt;
+03
+04 int main() {
+05     int *p;
+06
+07     p = malloc(sizeof(int));
+08
+09     if (p == 0) {
+10         fputs("ERROR: Out of memory\n", stderr);
+11         return 1;
+12     }
+13
+14     *p = 42;
+15     printf("%d\n", *p);
+16
+17     free(p);
+18
+19     return 0;
+20 }
+</code></pre>
+<p>In which lines of this program will heap memory be allocated and/or deallocated?</p>
+<ol type='a'>
+<li>7 and 17</li>
+<li>5, 7, 14, and 17</li>
+<li>5, 7, and 17</li>
+<li>7, 14, and 17</li>
+</ol>
+<p>A: 7 and 17</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In which lines of the C program above are we referring to static memory?</strong></p>
+<ol type='a'>
+<li>10 and 15</li>
+<li>5, 7, and 19</li>
+<li>5 and 7</li>
+<li>7 and 19</li>
+</ol>
+<p>A: 10 and 15  (the string literals)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Is the use of heap memory really necessary in the C program above?</strong></p>
+<ol type='a'>
+<li>No, since we're only allocating memory for one int. We could have used the stack for that.</li>
+<li>Yes, because the size of the int is unknown at compile time.</li>
+<li>Yes, because the stack doesn't allow the flexible allocation and deallocation that we need here.</li>
+<li>Yes, because the stack might be too small.</li>
+</ol>
+<p>A: No, since we're only allocating memory for one int. We could have used the stack for that.</p>
+<p><em>Note: The "midterm 2 study guide" and "studying for midterms 2" sets say "Yes, because the size of the int is unknown" — that is wrong. Your actual exam screenshot (1-2.pdf) marks "No" as correct.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: How would the C program's behavior change if we would remove line 17?</strong></p>
+<ol type='a'>
+<li>The behavior wouldn't change, since the heap memory allocated in line 7 would be freed in line 19 when the process terminates.</li>
+<li>The program will crash.</li>
+<li>We will introduce a memory leak.</li>
+<li>The program will print an error message because we didn't free the heap memory.</li>
+</ol>
+<p>A: The behavior wouldn't change, since the heap memory allocated in line 7 would be freed in line 19 when the process terminates.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In C, we first declare an <code>int*</code>, then assign it via malloc, then without explicitly deallocating it, assign it another value from malloc. What did we create?</strong></p>
+<ol type='a'>
+<li>A stack overflow</li>
+<li>A dangling pointer</li>
+<li>A memory leak</li>
+<li>A target for automatic garbage collection</li>
+</ol>
+<p>A: A memory leak</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Runtime stacks enable...</strong></p>
+<ol type='a'>
+<li>recursion</li>
+<li>unique sets of parameters per subroutine activation</li>
+<li>unique sets of local variables per subroutine activation</li>
+<li>all of these options</li>
+</ol>
+<p>A: all of these options</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which of the following statements about the stack and the heap is incorrect?</strong></p>
+<ol type='a'>
+<li>The stack is usually larger than the heap.</li>
+<li>Stack memory is allocated and deallocated automatically.</li>
+<li>The stack is used for local variables.</li>
+<li>The heap is used when the size of required memory will only be known at runtime.</li>
+</ol>
+<p>A: The stack is usually larger than the heap.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which statement about stack and heap memory is incorrect?</strong></p>
+<ol type='a'>
+<li>For large amounts of memory the Heap should be used and not the Stack.</li>
+<li>In contrast to Stack memory, allocated Heap memory persists even after the process has terminated.</li>
+<li>The Heap provides more control over the time of deallocation than the Stack.</li>
+</ol>
+<p>A: In contrast to Stack memory, allocated Heap memory persists even after the process has terminated.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following C code snippet:</strong></p>
+<pre><code class='language-c' lang='c'>int n = 0;
+void count(int k) {
+    printf("count: %d\n", n += k);
+}
+</code></pre>
+<p>Where will the memory for the C-string <code>"count: %d\n"</code> be allocated?</p>
+<ol type='a'>
+<li>In static memory.</li>
+<li>Dynamically on the heap.</li>
+<li>Automatically on the stack.</li>
+</ol>
+<p>A: In static memory.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In the <code>count</code> snippet above, where will the memory for the variable <code>n</code> be allocated?</strong></p>
+<ol type='a'>
+<li>In static memory.</li>
+<li>Dynamically on the heap.</li>
+<li>Automatically on the stack.</li>
+</ol>
+<p>A: In static memory.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In the <code>count</code> snippet above, where will the memory for the variable <code>k</code> be allocated?</strong></p>
+<ol type='a'>
+<li>In static memory.</li>
+<li>Automatically on the stack.</li>
+<li>Dynamically on the heap.</li>
+</ol>
+<p>A: Automatically on the stack.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Where will local variables be allocated?</strong></p>
+<ol type='a'>
+<li>Dynamically on the heap.</li>
+<li>Automatically on the stack.</li>
+<li>In static memory.</li>
+</ol>
+<p>A: Automatically on the stack.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Where will the machine instructions of the executable be allocated at load time?</strong></p>
+<ol type='a'>
+<li>In static memory in the Data Segment.</li>
+<li>In static memory in the Text Segment.</li>
+<li>Dynamically on the Heap.</li>
+</ol>
+<p>A: In static memory in the Text Segment.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match each item with where its memory goes (Stack, Heap, BSS segment, Data segment, Text segment).</strong></p>
+<ul>
+<li><p>Initialized static variables =&gt; <strong>Data segment</strong></p></li>
+<li><p>Uninitialized static variables =&gt; <strong>BSS segment</strong></p></li>
+<li><p>Local variables =&gt; <strong>Stack</strong></p></li>
+<li><p>The machine instructions of the executable =&gt; <strong>Text segment</strong></p></li>
+</ul>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match the symbol with the memory segment (where memory will be allocated to store its value).</strong></p>
+<pre><code class='language-c' lang='c'>int a = 5;
+int b[1000];
+int c(int d) { return a * b[d]; }
+</code></pre>
+<ul>
+<li><p>a =&gt; <strong>Static, Data segment</strong></p></li>
+<li><p>*b =&gt; <strong>Static, BSS segment</strong></p></li>
+<li><p>*c =&gt; <strong>Static, Text segment</strong></p></li>
+<li><p>d =&gt; <strong>Automatic (stack)</strong></p></li>
+</ul>
+<p><em>Note: Some study sets say d is "Automatic (static)" or that b is "None" — both wrong. d is a parameter, so it lives on the stack; b is uninitialized, so it goes in BSS.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Assuming a C int array's base address is 1108, there are 100 elements, and the size of an int is 4 bytes, what is the exact address of element 40?</strong></p>
+<ol type='a'>
+<li>1148</li>
+<li>1188</li>
+<li>1268</li>
+<li>1386</li>
+</ol>
+<p>A: 1268  (1108 + 40 × 4)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: If the first printf statement in the following C code</strong></p>
+<pre><code class='language-c' lang='c'>double *p = malloc(5 * sizeof(double));
+printf("Base Address: %p, Size: %zu\n", p, sizeof(double));
+printf("Address: %p\n", p + 3);
+</code></pre>
+<p>prints <code>Base Address: 0x100407170, Size: 8</code>, what will the second printf statement print?</p>
+<ol type='a'>
+<li>Address: 0x100407188</li>
+<li>Address: 0x100407180</li>
+<li>Address: 0x100407190</li>
+<li>Address: 0x10040718</li>
+</ol>
+<p>A: Address: 0x100407188  (0x...170 + 3 × 8 = 0x...188)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What does this C program print?</strong></p>
+<pre><code class='language-c' lang='c'>int main() {
+    Node n1 = {1, NULL};
+    Node n2 = {2, &amp;n1};
+    Node n3 = {3, &amp;n2};
+    printList(&amp;n3);
+    return 0;
+}
+</code></pre>
+<p>(<code>Node</code> is a struct holding a value and a <code>next</code> pointer; <code>printList</code> prints each value while following <code>next</code>.)</p>
+<p>A: 3 2 1</p>
+<p>&nbsp;</p>
+</li>
+</ol>
+<h2>Generators, Iterators &amp; LINQ</h2>
+<ol start='103'>
+<li><p><strong>Q: A generator implemented using the <code>yield</code> keyword in C# or Python behaves similar to which Haskell feature?</strong></p>
+<ol type='a'>
+<li>Type classes</li>
+<li>Lazy lists</li>
+<li>Pattern matching</li>
+<li>Monads</li>
+</ol>
+<p>A: Lazy lists</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which C#/LINQ keywords are used to implement generators?</strong></p>
+<ol type='a'>
+<li>yield &amp; generate</li>
+<li>select &amp; yield</li>
+<li>return &amp; continue</li>
+<li>switch &amp; yield</li>
+</ol>
+<p>A: select &amp; yield</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which C#/LINQ keyword is used to implement generators? (version with single-word choices)</strong></p>
+<ol type='a'>
+<li>generate</li>
+<li>select</li>
+<li>yield</li>
+<li>continue</li>
+</ol>
+<p>A: yield</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the return type of a generator written in C# that yields values of some type T?</strong></p>
+<ol type='a'>
+<li><code>List&lt;T&gt;</code></li>
+<li><code>IEnumerable&lt;T&gt;</code></li>
+<li><code>Array&lt;T&gt;</code></li>
+<li><code>Yield&lt;T&gt;</code></li>
+</ol>
+<p>A: <code>IEnumerable&lt;T&gt;</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following generator written in C#:</strong></p>
+<pre><code class='language-csharp' lang='csharp'>public static IEnumerable&lt;int&gt; Quux(IEnumerable&lt;int&gt; seq)
+{
+    yield return 1;
+    foreach (var n in seq) yield return 5 * n;
+}
+</code></pre>
+<p>Translate the C# generator Quux into Python.</p>
+<ol type='a'>
+<li><pre><code class='language-csharp' lang='csharp'>def quux(seq):
+    yield 1
+    for n in seq:
+        yield 5 * n
+</code></pre>
+</li>
+<li><pre><code class='language-csharp' lang='csharp'>def quux(seq):
+    yield return 1
+    foreach n in seq:
+        yield return 5 * n
+</code></pre>
+</li>
+<li><pre><code class='language-csharp' lang='csharp'>def quux(seq):
+    yield 1
+    foreach n in seq:
+        yield return 5 * n
+</code></pre>
+</li>
+<li><pre><code class='language-csharp' lang='csharp'>def quux(seq):
+    yield return 1
+    for n in seq:
+        yield return 5 * n
+</code></pre>
+</li>
+</ol>
+<p>A: (a)</p>
+<pre><code class='language-python' lang='python'>def quux(seq):
+    yield 1
+    for n in seq:
+        yield 5 * n
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Using the C# generator Quux above (5 * n), how many times will the <code>yield return</code> statement be invoked when the following code is executed?</strong></p>
+<pre><code class='language-csharp' lang='csharp'>var ns = Quux(Quux(new int[] {1, 3}));
+foreach (var n in ns) Console.WriteLine(n);
+</code></pre>
+<ol type='a'>
+<li>7</li>
+<li>3</li>
+<li>5</li>
+<li>1</li>
+</ol>
+<p>A: 7  (inner Quux yields 3 times, outer Quux yields 4 times)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Using the C# generator Quux above (5 * n), what is the output of the following code?</strong></p>
+<pre><code class='language-csharp' lang='csharp'>var ns = Quux(Quux(new int[] {1, 3}));
+foreach (var n in ns) Console.WriteLine(n);
+</code></pre>
+<ol type='a'>
+<li>1, 5, 25, 75</li>
+<li>1, 1, 5, 25</li>
+<li>1, 5, 25, 125</li>
+<li>1, 3, 15, 45</li>
+</ol>
+<p>A: 1, 5, 25, 75</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Translate the C# generator Quux above (5 * n) into a Haskell function <code>quux :: [Int] -&gt; [Int]</code> using lazy lists.</strong></p>
+<ol type='a'>
+<li><code>quux xs = 1 : map (5*) xs</code></li>
+<li><code>quux xs = 1 ++ map (5*) xs</code></li>
+<li><code>quux xs = 1 : foldr (5*) xs</code></li>
+<li><code>quux xs = [1] ++ foldr (5*) xs</code></li>
+</ol>
+<p>A: <code>quux xs = 1 : map (5*) xs</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider this version of the C# generator, which yields <code>3 * n</code>:</strong></p>
+<pre><code class='language-csharp' lang='csharp'>public static IEnumerable&lt;int&gt; Quux(IEnumerable&lt;int&gt; seq)
+{
+    yield return 1;
+    foreach (var n in seq) yield return 3 * n;
+}
+</code></pre>
+<p>Translate it into Python.</p>
+<p>A: </p>
+<pre><code class='language-python' lang='python'>def quux(seq):
+    yield 1
+    for n in seq:
+        yield 3 * n
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Translate the 3 * n version of Quux into a Haskell function <code>quux :: [Int] -&gt; [Int]</code> using lazy lists.</strong></p>
+<p>A: <code>quux xs = 1 : map (3*) xs</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Using the 3 * n version of Quux, how many times will <code>yield return</code> be invoked?</strong></p>
+<pre><code class='language-csharp' lang='csharp'>var ns = Quux(Quux(new int[] {2, 5}));
+foreach (var n in ns) Console.WriteLine(n);
+</code></pre>
+<p>A: 7</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Using the 3 * n version of Quux, what is the output of the code?</strong></p>
+<pre><code class='language-csharp' lang='csharp'>var ns = Quux(Quux(new int[] {2, 5}));
+foreach (var n in ns) Console.WriteLine(n);
+</code></pre>
+<p>A: 1, 3, 18, 45  (inner yields 1, 6, 15; outer yields 1, 3·1, 3·6, 3·15)</p>
+<p><em>Note: The "final review 2024" set pairs this answer with the input {1, 3}; the answer 1, 3, 18, 45 only matches the input {2, 5}.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What are advantages of the "generator pattern"?</strong></p>
+<ol type='a'>
+<li>Improved space complexity.</li>
+<li>Allows to modularize programs that process streams of data.</li>
+<li>Potentially better time complexity due to lazy evaluation.</li>
+<li>All of the above.</li>
+</ol>
+<p>A: All of the above.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which of these are advantages common to the iterator/generator pattern and lazy evaluation?</strong></p>
+<ol type='a'>
+<li>may avoid unnecessary computations</li>
+<li>no side effects</li>
+<li>better space complexity</li>
+<li>shorter compile time</li>
+</ol>
+<p>A: may avoid unnecessary computations</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What kind of data can be queried with LINQ?</strong></p>
+<ol type='a'>
+<li>Any C# object that implements the IEnumerable interface.</li>
+<li>A SQL data base.</li>
+<li>An XML document.</li>
+<li>All of the above.</li>
+</ol>
+<p>A: All of the above.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What are advantages of functional construction of XML in C#/LINQ (over imperative construction)?</strong></p>
+<ol type='a'>
+<li>It is easier to read.</li>
+<li>It is faster.</li>
+<li>It can be used in a functional setting, e.g. as part of a LINQ query.</li>
+<li>It uses less memory.</li>
+</ol>
+<p>A: It can be used in a functional setting, e.g. as part of a LINQ query.</p>
+<p>&nbsp;</p>
+</li>
+</ol>
+<h2>Lambda Calculus &amp; Evaluation Strategies</h2>
+<ol start='119'>
+<li><p><strong>Q: What is the main reduction rule of the (operational) semantic of the λ-calculus?</strong></p>
+<ol type='a'>
+<li>α-reduction</li>
+<li>β-reduction</li>
+<li>γ-reduction</li>
+<li>δ-reduction</li>
+<li>λ-reduction</li>
+</ol>
+<p>A: β-reduction</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: λ-terms are built using only...</strong></p>
+<ol type='a'>
+<li>constants, applications, and λ-abstractions.</li>
+<li>variables, functions, and λ-abstractions.</li>
+<li>variables, applications, and functions.</li>
+<li>variables, applications, and λ-abstractions.</li>
+</ol>
+<p>A: variables, applications, and λ-abstractions.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Apply one β-reduction step to the λ-expression <code>(λy. (x y) x) z</code></strong></p>
+<ol type='a'>
+<li>x (z x)</li>
+<li>z (y z)</li>
+<li>(x z) x</li>
+<li>(z y) z</li>
+</ol>
+<p>A: <code>(x z) x</code>  (replace y with z in the body)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is Haskell's default evaluation strategy?</strong></p>
+<ol type='a'>
+<li>Call-by-value</li>
+<li>Applicative order</li>
+<li>Lazy evaluation</li>
+<li>Strict evaluation</li>
+</ol>
+<p>A: Lazy evaluation</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: A λ-calculus expression is said to be in WHNF (weak head normal form) if...</strong></p>
+<ol type='a'>
+<li>it contains no variables.</li>
+<li>it has a λ-abstraction at the top level.</li>
+<li>it has an application at the top level.</li>
+<li>it contains no redex.</li>
+</ol>
+<p>A: it has a λ-abstraction at the top level.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the next redex in normal order (leftmost / outermost) of the λ-expression <code>(λy. (λx. x) y) ((λz. z) 3)</code>?</strong></p>
+<ol type='a'>
+<li>(λz. z) 3</li>
+<li>3</li>
+<li>(λy. (λx. x) y) ((λz. z) 3)</li>
+<li>(λx. x) y</li>
+</ol>
+<p>A: <code>(λy. (λx. x) y) ((λz. z) 3)</code> (the whole expression)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the next redex in applicative order (rightmost / innermost) of the λ-expression <code>(λy. (λx. x) y) ((λz. z) 3)</code>?</strong></p>
+<ol type='a'>
+<li>(λy. (λx. x) y) ((λz. z) 3)</li>
+<li>(λx. x) y</li>
+<li>(λz. z) 3</li>
+<li>3</li>
+</ol>
+<p>A: <code>(λz. z) 3</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the λ-expression <code>λy. (λx. x) y</code> to WHNF (weak head normal form).</strong></p>
+<ol type='a'>
+<li>y</li>
+<li>λx. x</li>
+<li>λy. (λx. x) y</li>
+<li>x</li>
+</ol>
+<p>A: <code>λy. (λx. x) y</code>  (it already has a λ-abstraction at the top level)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the Haskell λ-expression step-by-step in NORMAL order, i.e. leftmost, outermost redex first.</strong></p>
+<pre><code class='language-haskell' lang='haskell'>(\x -&gt; x * x) (1 + 2)
+</code></pre>
+<p>Which is the first redex?</p>
+<ol type='a'>
+<li><code>1 + 2</code></li>
+<li><code>x * x</code></li>
+<li><code>\x -&gt; x * x</code></li>
+<li><code>(\x -&gt; x * x) (1 + 2)</code></li>
+<li><code>there is none</code></li>
+</ol>
+<p>A: <code>(\x -&gt; x * x) (1 + 2)</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Normal order, <code>(\x -&gt; x * x) (1 + 2)</code>: Which is the second redex?</strong></p>
+<ol type='a'>
+<li><code>1 + 2</code></li>
+<li><code>x * x</code></li>
+<li><code>\x -&gt; x * x</code></li>
+<li><code>(\x -&gt; x * x) (1 + 2)</code></li>
+<li><code>there is none</code></li>
+</ol>
+<p>A: <code>1 + 2</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Normal order, <code>(\x -&gt; x * x) (1 + 2)</code>: Which is the third redex?</strong></p>
+<ol type='a'>
+<li><code>1 + 2</code></li>
+<li><code>x * x</code></li>
+<li><code>\x -&gt; x * x</code></li>
+<li><code>(\x -&gt; x * x) (1 + 2)</code></li>
+<li><code>there is none</code></li>
+</ol>
+<p>A: <code>1 + 2</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Normal order, <code>(\x -&gt; x * x) (1 + 2)</code>: Which is the fourth redex?</strong></p>
+<ol type='a'>
+<li><code>1 + 2</code></li>
+<li><code>3 * 3</code></li>
+<li><code>\x -&gt; x * x</code></li>
+<li><code>(\x -&gt; x * x) (1 + 2)</code></li>
+<li><code>there is none</code></li>
+</ol>
+<p>A: <code>3 * 3</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Normal order, <code>(\x -&gt; x * x) (1 + 2)</code>: What are the expressions after each reduction step?</strong></p>
+<p>A: <code>(1 + 2) * (1 + 2)</code> → <code>3 * (1 + 2)</code> → <code>3 * 3</code> → <code>9</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the Haskell λ-expression step-by-step in APPLICATIVE order, i.e. rightmost, innermost redex first.</strong></p>
+<pre><code class='language-haskell' lang='haskell'>(\x -&gt; x * x) (1 + 2)
+</code></pre>
+<p>Which is the first redex?</p>
+<ol type='a'>
+<li><code>1 + 2</code></li>
+<li><code>x * x</code></li>
+<li><code>\x -&gt; x * x</code></li>
+<li><code>(\x -&gt; x * x) (1 + 2)</code></li>
+<li><code>there is none</code></li>
+</ol>
+<p>A: <code>1 + 2</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Applicative order, <code>(\x -&gt; x * x) (1 + 2)</code>: Which is the second redex?</strong></p>
+<ol type='a'>
+<li><code>1 + 2</code></li>
+<li><code>x * x</code></li>
+<li><code>\x -&gt; x * x</code></li>
+<li><code>(\x -&gt; x * x) 3</code></li>
+<li><code>there is none</code></li>
+</ol>
+<p>A: <code>(\x -&gt; x * x) 3</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Applicative order, <code>(\x -&gt; x * x) (1 + 2)</code>: Which is the third redex?</strong></p>
+<ol type='a'>
+<li><code>1 + 2</code></li>
+<li><code>3 * 3</code></li>
+<li><code>\x -&gt; x * x</code></li>
+<li><code>(\x -&gt; x * x) (1 + 2)</code></li>
+<li><code>there is none</code></li>
+</ol>
+<p>A: <code>3 * 3</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Applicative order, <code>(\x -&gt; x * x) (1 + 2)</code>: Which is the fourth redex?</strong></p>
+<ol type='a'>
+<li><code>1 + 2</code></li>
+<li><code>x * x</code></li>
+<li><code>\x -&gt; x * x</code></li>
+<li><code>(\x -&gt; x * x) (1 + 2)</code></li>
+<li><code>there is none</code></li>
+</ol>
+<p>A: there is none</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Applicative order, <code>(\x -&gt; x * x) (1 + 2)</code>: What are the expressions after each reduction step?</strong></p>
+<p>A: <code>(\x -&gt; x * x) 3</code> → <code>3 * 3</code> → <code>9</code></p>
+<p><em>Note: The "final review 2024" set labels applicative order "leftmost, outermost" — that is wrong; applicative order is rightmost, innermost.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is a Turing machine?</strong></p>
+<ol type='a'>
+<li>An early computing device by Alan Turing.</li>
+<li>A device for a "Turing Test", i.e. a method of inquiry in artificial intelligence.</li>
+<li>An abstract machine model to reason about computation.</li>
+<li>A device for the "Imitation Game" by Alan Turing.</li>
+</ol>
+<p>A: An abstract machine model to reason about computation.</p>
+<p>&nbsp;</p>
+</li>
+</ol>
+<h2>Prolog &amp; Logic Programming</h2>
+<ol start='138'>
+<li><p><strong>Q: What are the two main programming paradigms?</strong></p>
+<ol type='a'>
+<li>Procedural vs Object Oriented</li>
+<li>Imperative vs Declarative</li>
+<li>Functional vs Logic</li>
+<li>Static vs Dynamic</li>
+</ol>
+<p>A: Imperative vs Declarative</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In the imperative programming paradigm the programmer...</strong></p>
+<ol type='a'>
+<li>...declares properties of the desired result, but not how to compute it.</li>
+<li>...instructs the machine how to change its state step by step.</li>
+<li>...gives explanations of the program's logic in a natural language interspersed with snippets of traditional source code.</li>
+</ol>
+<p>A: ...instructs the machine how to change its state step by step.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the Prolog logic programming language based on?</strong></p>
+<ol type='a'>
+<li>modal logic</li>
+<li>intuitionistic logic</li>
+<li>predicate logic</li>
+<li>propositional logic</li>
+</ol>
+<p>A: predicate logic (first order predicate logic)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: The syntax of Prolog is composed of (multiple choice):</strong></p>
+<ol type='a'>
+<li>variables</li>
+<li>atoms</li>
+<li>functors</li>
+<li>implications</li>
+<li>conjunctions</li>
+</ol>
+<p>A: All five: variables, atoms, functors, implications, conjunctions</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: The syntax of Prolog is NOT composed of</strong></p>
+<ol type='a'>
+<li>functors</li>
+<li>atoms</li>
+<li>variables</li>
+<li>functions</li>
+<li>implications</li>
+<li>conjunctions</li>
+</ol>
+<p>A: functions</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which logical connectives are used to write a rule in Prolog?</strong></p>
+<ol type='a'>
+<li>Conjunction &amp; disjunction</li>
+<li>Implication &amp; conjunction</li>
+<li>Implication &amp; disjunction</li>
+</ol>
+<p>A: Implication &amp; conjunction  (<code>:-</code> is implication, <code>,</code> is conjunction)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: How many solutions will Prolog provide for a query?</strong></p>
+<ol type='a'>
+<li>One for each literal in the query.</li>
+<li>Just one, unless the user requests more.</li>
+<li>All possible solutions.</li>
+</ol>
+<p>A: Just one, unless the user requests more.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Prolog's SLD resolution algorithm is</strong></p>
+<ol type='a'>
+<li>a breadth first tree search algorithm.</li>
+<li>a Monte Carlo tree search algorithm.</li>
+<li>a depth first tree search algorithm.</li>
+<li>a linear search algorithm.</li>
+</ol>
+<p>A: a depth first tree search algorithm.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is important to know about Prolog's "negation as failure" <code>\+</code>?</strong></p>
+<ol type='a'>
+<li>Prolog's negation is only logically sound when there are no disjunctions in the negated expression.</li>
+<li>Prolog's negation is only logically sound if all variables in the negated expression are ground (bound to values).</li>
+<li>Prolog's negation is only logically sound when it's applied to a literal.</li>
+</ol>
+<p>A: Prolog's negation is only logically sound if all variables in the negated expression are ground (bound to values).</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which language feature is used in Prolog to implement "negation as failure"?</strong></p>
+<ol type='a'>
+<li>Atoms</li>
+<li>Variables</li>
+<li>Unification</li>
+<li>The cut</li>
+</ol>
+<p>A: The cut</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Is the Prolog programming language Turing-complete?</strong></p>
+<ol type='a'>
+<li>Yes.</li>
+<li>No.</li>
+<li>This is unknown.</li>
+</ol>
+<p>A: Yes.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: In the Prolog expression <code>male(Who).</code> the identifier <code>Who</code> is a</strong></p>
+<ol type='a'>
+<li>fact.</li>
+<li>variable.</li>
+<li>rule.</li>
+<li>atom.</li>
+</ol>
+<p>A: variable.  (it starts with a capital letter)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the answer to the following Prolog query?</strong></p>
+<pre><code class='language-prolog' lang='prolog'>loves(vincent, mia).
+loves(marsellus, mia).
+loves(pumpkin, honey_bunny).
+loves(honey_bunny, pumpkin).
+
+jealous(X, Y) :- loves(X, Z), loves(Y, Z).
+
+?- loves(X, X).
+</code></pre>
+<p>A: false.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Using the same Prolog program (loves/jealous), what is the answer to <code>?- loves(pumpkin, mia).</code>?</strong></p>
+<p>A: false.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Using the same Prolog program, what is the answer to <code>?- loves(pumpkin, honey_bunny).</code>?</strong></p>
+<p>A: true.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Using the same Prolog program, what is the answer to <code>?- loves(pumpkin, X).</code>?</strong></p>
+<p>A: X = honey_bunny.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Using the same Prolog program, what is the answer to <code>?- jealous(marsellus, W).</code>?</strong></p>
+<p>A: W = vincent.  (first answer; asking for more also gives W = marsellus)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Given the Prolog program</strong></p>
+<pre><code class='language-prolog' lang='prolog'>loves(vincent, mia).
+loves(marsellus, mia).
+loves(pumpkin, honey_bunny).
+loves(honey_bunny, pumpkin).
+
+jealous(X, Y) :- loves(X, Z), loves(Y, Z).
+</code></pre>
+<p>Which of the following queries can produce more than one result?</p>
+<ol type='a'>
+<li><code>?- loves(pumpkin, honey_bunny).</code></li>
+<li><code>?- loves(pumpkin, X).</code></li>
+<li><code>?- loves(X, X).</code></li>
+<li><code>?- loves(pumpkin, mia).</code></li>
+<li><code>?- jealous(marsellus, W).</code></li>
+</ol>
+<p>A: <code>?- jealous(marsellus, W).</code></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Given the same Prolog program, how can we improve the definition of the predicate <code>jealous(X, Y)</code> to exclude results where X and Y are the same person?</strong></p>
+<ol type='a'>
+<li><code>jealous(X, Y) :- X \= Y, loves(X, Z), loves(Y, Z).</code></li>
+<li><code>jealous(X, Y) :- loves(X, Z), loves(Y, Z), X \= Y.</code></li>
+<li><code>jealous(X, Y), X \= Y :- loves(X, Z), loves(Y, Z).</code></li>
+<li><code>jealous(X, Y) :- loves(X, Z), X \= Y, loves(Y, Z).</code></li>
+</ol>
+<p>A: <code>jealous(X, Y) :- loves(X, Z), loves(Y, Z), X \= Y.</code>  (X and Y must be bound before testing \=)</p>
+<p>&nbsp;</p>
+</li>
+</ol>
+<h2>Compilation &amp; Language Implementation</h2>
+<ol start='157'>
+<li><p><strong>Q: In computing, a compiler is a computer program that...</strong></p>
+<ol type='a'>
+<li>...has been used in the early days of computing to work with piles of punched cards.</li>
+<li>...is used to compile big sets of data.</li>
+<li>...translates source code from a high-level programming language to a lower level language to create an executable program.</li>
+</ol>
+<p>A: ...translates source code from a high-level programming language to a lower level language to create an executable program.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which implementation method produces, in general, faster code?</strong></p>
+<ol type='a'>
+<li>Compilation to native code</li>
+<li>Interpretation</li>
+<li>Hybrid (mixed compilation and interpretation)</li>
+<li>Compilation to intermediate language code</li>
+</ol>
+<p>A: Compilation to native code</p>
+<p><em>Note: The "cecs 342 OG" set left this answer blank.</em></p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Match the languages with the way that they are typically executed.</strong></p>
+<ul>
+<li><p>C =&gt; <strong>Compiled to native code</strong></p></li>
+<li><p>C++ =&gt; <strong>Compiled to native code</strong></p></li>
+<li><p>C# =&gt; <strong>Compiled (to managed code that is then executed by the .NET runtime)</strong></p></li>
+<li><p>Python =&gt; <strong>Interpreted (after being compiled to byte code)</strong></p></li>
+<li><p>Haskell =&gt; <strong>Compiled to native code or interpreted</strong></p></li>
+</ul>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the 1st step in the process of converting a C program source file into an executable?</strong></p>
+<p>A: Compiling</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which of the following best describes linking?</strong></p>
+<p>A: Combining multiple object files into an executable.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is the role of the loader?</strong></p>
+<p>A: It places the executable into memory for execution.</p>
+<p>&nbsp;</p>
+</li>
+</ol>
+<h2>Definitions &amp; Concepts</h2>
+<ol start='163'>
+<li><p><strong>Q: What is/are: Alan Turing?</strong></p>
+<p>A: Famous for the Turing machine; showed the limits of computation. The Turing machine is the definition of computable functions.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: Alonzo Church?</strong></p>
+<p>A: Invented the lambda calculus in the 1930s.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: a λ-term?</strong></p>
+<p>A: A variable (x, y, z...), an application <code>P Q</code>, or a λ-abstraction <code>λx. P</code>.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: a redex?</strong></p>
+<p>A: A reducible expression: an application of the form <code>(λx. body) argument</code> — a lambda expression you can reduce.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: β-reduction?</strong></p>
+<p>A: The process of calculating a result from the application of a function to an expression, by substituting the argument for the parameter.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: α-conversion?</strong></p>
+<p>A: Renaming bound variables, e.g. <code>λx. x</code> → <code>λy. y</code>. It does not change the meaning of the expression.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: normal form?</strong></p>
+<p>A: A lambda expression with no redex, so no further β-reduction is needed.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: computation (in the λ-calculus)?</strong></p>
+<p>A: The reduction of a lambda expression to normal form.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: the Church-Rosser theorem?</strong></p>
+<p>A: If an expression has a normal form, it is unique, no matter the order of reduction steps. But some evaluation strategies may take longer or never find it.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: evaluation strategies?</strong></p>
+<p>A: Haskell prefers leftmost/outermost first (normal order); the other is rightmost/innermost first (applicative order).</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: applicative order / call-by-value?</strong></p>
+<p>A: Rightmost/innermost redex first. Call-by-value is similar to applicative order, but does no reductions inside lambda abstractions.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: normal order / call-by-name?</strong></p>
+<p>A: Leftmost/outermost redex first. Call-by-name is similar to normal order, but stops at WHNF.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: call-by-need?</strong></p>
+<p>A: Call-by-name + memoization: remembers values it has already computed. E.g. in <code>(2+1) + (2+1)</code> the second <code>(2+1)</code> is not recomputed.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: lazy evaluation?</strong></p>
+<p>A: Also known as call-by-need: evaluation takes place only when the value is needed, and only computes what is necessary.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: generic programming?</strong></p>
+<p>A: Writing algorithms in terms of types that are specified as parameters during instantiation or invocation (type parameters &amp; interfaces in C#, templates in C++, macros/void* in C, polymorphic types &amp; type classes in Haskell).</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: memory allocation (the two kinds)?</strong></p>
+<p>A: Static and dynamic.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: static memory?</strong></p>
+<p>A: Fixed size during the process, allocated before the program runs; holds global/static variables and code. Contains the BSS, Data, and Text segments.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: dynamic memory?</strong></p>
+<p>A: Allocated during runtime. The two kinds are the stack and the heap.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: the stack?</strong></p>
+<p>A: Automatic. Holds local variables and return addresses; fixed and limited size; makes function calls and recursive calls possible.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: the heap?</strong></p>
+<p>A: Manual. Used for large data or data whose size is only known at runtime; objects created with <code>new</code> go on the heap.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: allocating memory in C vs C++?</strong></p>
+<p>A: C: <code>malloc</code> to allocate, <code>free</code> to deallocate. C++: <code>new</code> and <code>delete</code>. <code>new</code> calls a constructor (malloc doesn't); <code>delete</code> calls a destructor (free doesn't). Forgetting free/delete causes a memory leak.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: the Data segment?</strong></p>
+<p>A: Initialized static variables, e.g. a global <code>int y = 5;</code>.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: the BSS segment?</strong></p>
+<p>A: "Block Starting Symbol": statically-allocated variables that are declared but not initialized, e.g. a global <code>int x;</code>.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: the Text segment?</strong></p>
+<p>A: The program code (machine instructions). It is static, so the running program doesn't modify it.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: an iterator?</strong></p>
+<p>A: An object used to traverse containers (e.g. arrays or lists), enumerating the elements as a sequence. Also known as an enumerator.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: a coroutine?</strong></p>
+<p>A: A generalization of a subroutine: a subroutine has one entry point (and can exit in several places), while a coroutine has multiple entry points and multiple exit points.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: a generator?</strong></p>
+<p>A: A coroutine that yields a sequence of values. Unlike a subroutine, which returns one value on exit, a generator can yield multiple values without terminating. Can be used to implement iterators.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: a pipeline (modularization)?</strong></p>
+<p>A: Processing one value at a time through each function in turn.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: how Haskell modularizes stream processing?</strong></p>
+<p>A: With lazy evaluation and lists as generators, e.g. <code>sum (square generate)</code> or using <code>$</code>.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: how Python and C# modularize stream processing?</strong></p>
+<p>A: With <code>yield</code> in each function: Python uses <code>yield</code>; C# uses <code>IEnumerable&lt;T&gt;</code> return types and <code>yield return</code>.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: how C modularizes stream processing?</strong></p>
+<p>A: With pipes on the command line, e.g. <code>./do generate | ./do square | ./do sum</code>.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: the difference between a list and a set?</strong></p>
+<p>A: Lists are ordered and can contain duplicates; sets only have unique elements.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: the imperative paradigm?</strong></p>
+<p>A: Step-by-step instructions. Includes procedural (e.g. C) and object-oriented (e.g. Java, C#) programming; C++ and Python mix both.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: the declarative paradigm?</strong></p>
+<p>A: Describe the problem in a specification language and let the software compute it. Includes functional (Haskell, LINQ; no side effects, immutable variables) and logic (Prolog) programming.</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: syntax?</strong></p>
+<p>A: Which character sequences are valid programs? (Does it compile?)</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: semantics?</strong></p>
+<p>A: Denotational semantics: what does a program mean / what is it modeling? Operational semantics: what does a program do / which instructions does it execute when it runs?</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What is/are: soundness (of an operational semantics)?</strong></p>
+<p>A: An operational semantics is sound (with respect to a denotational semantics) if the operational evaluation of expressions preserves their denotational meaning.</p>
+<p>&nbsp;</p>
+</li>
+</ol>
+</body>
+</html>

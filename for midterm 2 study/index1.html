@@ -1,0 +1,332 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>MT1</title></head>
+<body><ol start='' >
+<li><p><strong>Q: What is the main reduction rule of the semantic of the lambda-calculus?</strong></p>
+<p>A: beta-reduction</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: A list [1,2,3] in Haskell is syntactic sugar for...</strong></p>
+<p>A: 1 : 2 : 3 : [] which is equivalent to 1 : (2 : (3 : []))</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which kind of recursion is an important concept in functional programming?</strong></p>
+<p>A: tail recursion</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What does it mean that Haskell is a pure functional programming language?</strong></p>
+<p>A: the evaluation of expressions has no side-effects</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What language feature is not a feature of Haskell?</strong></p>
+<p>A: mutable variables</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which technique can be used to transform a recursive function into an equivalent tail recursive function?</strong></p>
+<p>A: accumulating parameters</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: ln the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>product [] = 1
+product (x:xs) = x * product xs
+</code></pre>
+<p>we used an example of</p>
+<p>A: pattern matching</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which Haskell language feature is used where other languages would use NULL pointers?</strong></p>
+<p>A: algebraic data types, in particular co-products</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: What makes a recursive function definition tail recursive?</strong></p>
+<p>A: it contains exactly one recursive call and its return value is immediately returned by the calling function</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Which of the following expressions is not equivalent to the section(^2)</strong></p>
+<p>A: \x -&gt; 2^x</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Evaluate the expression</strong></p>
+<pre><code class='language-haskell' lang='haskell'>a`b`c
+	where
+		a = &quot;a&quot;
+		b = (++)
+		c = &quot;c&quot;
+</code></pre>
+<p>A: &quot;ac&quot;</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q:  Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr (+) 0 [1, 2, 3]
+</code></pre>
+<p>A: 6</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q:  Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr (-) 0 [1, 2, 3]
+</code></pre>
+<p>A: 2</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q:  Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldl (+) 0 [1, 2, 3]
+</code></pre>
+<p>A: 6</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q:  Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldl (-) 0 [1, 2, 3]
+</code></pre>
+<p>A: -6</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q:  Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr (+) 5 [1, 2, 3]
+</code></pre>
+<p>A: 11</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q:  Evaluate the following Haskell fold expression:</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldl (-) 5 [1, 2, 3]
+</code></pre>
+<p>A: -1</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>What is the type of the following polymorphic Haskell function?</strong> </p>
+<pre><code class='language-haskell' lang='haskell'>max a b = if a &lt;= b then b else a
+</code></pre>
+<p>A:</p>
+<pre><code class='language-haskell' lang='haskell'>max :: Ord a =&gt; a -&gt; a -&gt; a
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>What is the type of the following polymorphic Haskell function?</strong></p>
+<pre><code class='language-haskell' lang='haskell'>head (x:xs) = x
+</code></pre>
+<p>A:</p>
+<pre><code class='language-haskell' lang='haskell'>head :: [a] -&gt; a
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>What is the type of the following polymorphic Haskell function?</strong></p>
+<pre><code class='language-haskell' lang='haskell'>length [] = 0
+length (a:as) = 1 + length as
+</code></pre>
+<p>A:</p>
+<pre><code class='language-haskell' lang='haskell'>length :: Num n =&gt; [a] -&gt; n
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p>Q: What is the type of the following polymorphic Haskell function?</p>
+<pre><code class='language-haskell' lang='haskell'>maximum = foldll max
+where max a b = if a &lt;= b then b else a
+</code></pre>
+<p>and where foldll is the following function from Data.List:</p>
+<pre><code class='language-haskell' lang='haskell'>foldll :: Foldable t =&gt; (a -&gt; a -&gt; a) -&gt; t a -&gt; a
+</code></pre>
+<p>A: </p>
+<pre><code class='language-haskell' lang='haskell'>maximum :: (Foldable t, Ord a) =&gt; t a -&gt; a 
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>const x _ = x
+</code></pre>
+<p>Evaluate</p>
+<pre><code class='language-haskell' lang='haskell'>const (1+) 10 100
+</code></pre>
+<p>A: 101</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>const x _ = x
+</code></pre>
+<p>what is the type of const?</p>
+<p>A:</p>
+<pre><code class='language-haskell' lang='haskell'>const :: a -&gt; b -&gt; a
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>const x _ = x
+</code></pre>
+<p>Evaluate the Haskell expression</p>
+<pre><code class='language-haskell' lang='haskell'>foldr (const (1+)) 0 [2, 31, 1]
+</code></pre>
+<p>A: 3</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>const x _ = x
+</code></pre>
+<p>Evaluate the Haskell expression</p>
+<pre><code class='language-haskell' lang='haskell'>foldl (const (1+)) 0 [2, 31, 1]
+</code></pre>
+<p>A: 2</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>(++) [] 	ys = ys
+(++) (x:xs) ys = x:(xs++ys)
+</code></pre>
+<p>Evaluate the Haskell expression</p>
+<pre><code class='language-haskell' lang='haskell'>&quot;c&quot; ++ &quot;++&quot;
+</code></pre>
+<p>A: &quot;c++&quot;</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>(++) [] 	ys = ys
+(++) (x:xs) ys = x:(xs++ys)
+</code></pre>
+<p>What is the type of (++)?</p>
+<p>A:</p>
+<pre><code class='language-haskell' lang='haskell'>(++) :: [a] -&gt; [a] -&gt; [a]
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>(++) [] 	ys = ys
+(++) (x:xs) ys = x:(xs++ys)
+</code></pre>
+<p>What does the function <code>foldr (++) []</code> do?</p>
+<p>A: flatten a list of lists</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>flip f a b = f b a
+</code></pre>
+<p>Evaluate:</p>
+<pre><code class='language-haskell' lang='haskell'>flip (-) 1 2
+</code></pre>
+<p>A: 1</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>flip f a b = f b a
+</code></pre>
+<p>What is the type of flip?</p>
+<p>A:</p>
+<pre><code class='language-haskell' lang='haskell'>flip :: (a -&gt; b -&gt; c) -&gt; (b -&gt; a -&gt; c)
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell function definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>flip f a b = f b a
+</code></pre>
+<p>Evaluate the expression:</p>
+<pre><code class='language-haskell' lang='haskell'>foldl (flip (:)) [] &quot;drawer&quot;
+</code></pre>
+<p>A: &quot;reward&quot;</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell data type and function definitions</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data (a, b) = (a, b)
+fst (a, _) = a
+snd (_, b) = b
+</code></pre>
+<p>Which kind of algebraic data type is (a, b)</p>
+<p>A: a product</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell data type and function definitions</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data (a, b) = (a, b)
+fst (a, _) = a
+snd (_, b) = b
+</code></pre>
+<p>What kind of function are fst and snd</p>
+<p>A: projections</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the Haskell data type and function definitions</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data (a, b) = (a, b)
+fst (a, _) = a
+snd (_, b) = b
+</code></pre>
+<p>Evaluate the expression</p>
+<pre><code class='language-haskell' lang='haskell'>let f p = fst p - snd p in f(1, 3)
+</code></pre>
+<p>A: -2</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell function definitions</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr _ z [] = z
+foldr f z (x:xs) = f x (foldr f z xs)
+
+foldl _ z [] = z
+foldl f z (x:xs) = foldl f (f z x) xs
+</code></pre>
+<p>While of these functions are tail recursive?</p>
+<p>A: foldl but not foldr</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell function definitions</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr _ z [] = z
+foldr f z (x:xs) = f x (foldr f z xs)
+
+foldl _ z [] = z
+foldl f z (x:xs) = foldl f (f z x) xs
+</code></pre>
+<p>What is the type of foldr?</p>
+<p>A:</p>
+<pre><code class='language-haskell' lang='haskell'>foldr :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell function definitions</strong></p>
+<pre><code class='language-haskell' lang='haskell'>foldr _ z [] = z
+foldr f z (x:xs) = f x (foldr f z xs)
+
+foldl _ z [] = z
+foldl f z (x:xs) = foldl f (f z x) xs
+</code></pre>
+<p>What is the type of foldl?</p>
+<p>A:</p>
+<pre><code class='language-haskell' lang='haskell'>foldl :: (b -&gt; a -&gt; b) -&gt; b -&gt; [a] -&gt; b
+</code></pre>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Maybe a = Nothing | Just a
+</code></pre>
+<p>What can Maybe be used for?</p>
+<p>A: optional values</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Maybe a = Nothing | Just a
+
+instance Foldable Maybe
+	where
+		foldr _ z Nothing = z
+		foldr f z (Just x) = f x z
+</code></pre>
+<p>and keep in mind that functions like</p>
+<pre><code class='language-haskell' lang='haskell'>sum :: (Foldable t, Num a) =&gt; t a -&gt; a
+</code></pre>
+<p>are defined in terms of <code>foldr</code></p>
+<p>Evaluate the expression sum Nothing</p>
+<p>A: 0</p>
+<p>&nbsp;</p>
+</li>
+<li><p><strong>Q: Consider the following Haskell data type definition</strong></p>
+<pre><code class='language-haskell' lang='haskell'>data Maybe a = Nothing | Just a
+
+instance Foldable Maybe
+	where
+		foldr _ z Nothing = z
+		foldr f z (Just x) = f x z
+</code></pre>
+<p>and keep in mind that functions like</p>
+<pre><code class='language-haskell' lang='haskell'>sum :: (Foldable t, Num a) =&gt; t a -&gt; a
+</code></pre>
+<p>are defined in terms of <code>foldr</code></p>
+<p>Evaluate the expression sum (Just 2)</p>
+<p>A: 2</p>
+</li>
+
+</ol>
+</body>
+</html>
